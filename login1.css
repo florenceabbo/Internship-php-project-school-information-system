@@ -1,14 +1,6 @@
 
 
-form {
-    background-color: white; /* Set form background color to white */
-    padding: 10px;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 50px;
-    
-}
+
 
 label {
     color: orange; /* Set label color to orange */
@@ -16,14 +8,7 @@ label {
 }
 
 
-input[type="email"],
-input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #200190; 
-    border-radius: 5px;
-}
+
 h2{
     margin-left: 500px;
     color: white;
@@ -34,9 +19,3 @@ h3{
 }
 
 
-button{
-    padding: 10px;
-    background-color: orange;
-    width: 300px;
-    border-radius: 10px;
-}

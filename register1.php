@@ -10,6 +10,72 @@
     href="https://fonts.googleapis.com/css2? 
     family=Ubuntu+Mono&display=swap" 
     rel="stylesheet">
+    <style>
+        body {
+            background-image: url('mak.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0px;
+            height: 100vh;
+            display: flex;
+            /*justify-content: center;*/
+            align-items: center;
+        }
+
+        h4 {
+            font-size: 15px;
+            color: orange;
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgb(0,0,0,0.4);
+            background-size: cover;
+            background-position: center;
+            width:100%;
+            height: 100%;
+        }
+
+        .invalid-feedback {
+            color: red;
+        }
+
+        /* Center the image */
+        .osplogo {
+            width: 150px; /* Set the width of the image */
+            height: 150px;
+            margin-bottom: 20px; /* Add some space below the image */
+        }
+        form {
+    background-color: white; /* Set form background color to white */
+    padding: 25px 9px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 60px;
+   
+    
+}
+input[type="name"],
+input[type="email"]
+input[type="password"]
+input[type="confirm password"]
+{
+    width: calc(100% - 150px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #200190; 
+    border-radius: 5px;
+}
+
+button{
+    padding: 10px;
+    background-color: orange;
+    width: calc(100% - 135px);
+    border-radius: 10px;
+    border: none;
+}
+    </style>
     
 </head>
 <body>
@@ -99,16 +165,18 @@ $conn->close();
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label for="name" >Name:</label><br>
+<h4>OSP DIGITAL COLLEGE</h4>
+                    <img src="osplogo.png" alt="OSP Logo" class="osplogo">
+    
     <input type="text"  placeholder= "Enter full name" id="name" name="name"><br><br>
 
-    <label for="email">Email:</label><br>
+   
     <input type="email" placeholder= "Enter  valid email" id="email" name="email"><br><br>
 
-    <label for="password">Password:</label><br>
+  
     <input type="password"  placeholder= "Enter password" id="password" name="password"><br><br>
 
-    <label for="confirm_password">Confirm Password:</label><br>
+   
     <input type="password" placeholder= "Confirm password" id="confirm_password" name="confirm_password"><br><br>
 
     <input type="submit" value="Register">

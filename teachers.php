@@ -1,5 +1,6 @@
 <?php include 'auth.php'; ?>
 
+
 <?php
 include('dbconn.php');
 
@@ -80,19 +81,19 @@ include('dbconn.php');
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-            <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>S/N</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Classes</th>
-                            <th>subjects</th>
-                            <th>address</th>
-                            <th>Contact</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
+             <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Classes</th>
+                        <th>Subject</th>
+                        <th>Address</th>
+                        <th> Contact</th>
+                        <th>ACTION</th>
+                    </tr>
+                </thead>
                     <tbody>
                         <?php
                         $sql = "SELECT * FROM teachers";
@@ -102,34 +103,76 @@ include('dbconn.php');
                                 ?>
                                 <tr>
                                     <td><?php echo $row['id'] ?></td>
-                                    <td><?php echo $row['tname'] ?></td>
+                                    <td><?php echo $row['tname'] ?></td>                                   
                                     <td><?php echo $row['email'] ?></td>
                                     <td><?php echo $row['classes'] ?></td>
                                     <td><?php echo $row['subject'] ?></td>
                                     <td><?php echo $row['address'] ?></td>
                                     <td><?php echo $row['contact'] ?></td>
                                     <td>
-                                    <a class="btn btn-primary" href="#" role="button">edit</a>
-                                    <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>" role="button">delete</a>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default2_<?php echo $row['id']; ?>">
+                                            Edit
+                                        </button>
+                                        <a class="btn btn-danger"  href="deletetea.php?id=<?php echo $row['id']; ?>&table=teachers" role="button1">Delete</a>
                                     </td>
                                 </tr>
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="modal-default2_<?php echo $row['id']; ?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                          <h4 class="modal-title">Edit Teacher's Data</h4>
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" method="POST" action="tea_update.php">
+                                                    <div class="form-group">
+                                                        <label for="tname">Teacher's Name</label>
+                                                        <input type="text" id="tname" name="tname" class="form-control" placeholder="Enter Full Name" value="<?php echo $row['tname']; ?>" required>
+                                                    </div>
+                                                  
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" value="<?php echo $row['email']; ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="classes">Classes</label>
+                                                        <input type="text" id="classes" name="classes" class="form-control" placeholder="Enter classes" value="<?php echo $row['classes']; ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="subject">Subjects</label>
+                                                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter Subjects" value="<?php echo $row['subject']; ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="address">Address</label>
+                                                        <input type="text" id="address" name="address" class="form-control" placeholder="Enter Address" value="<?php echo $row['address']; ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="contact">Contact</label>
+                                                        <input type="text" id="contact" name="contact" class="form-control" placeholder="Enter Contact" value="<?php echo $row['contact']; ?>" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                                        <button type="submit" name="submit" class="btn btn-primary btn-block">Update</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <?php
                             }
                         }
                         ?>
                     </tbody>
-              </table>
-
+                </table>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
+  
  <?php include ('footer.php')?>

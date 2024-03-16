@@ -107,10 +107,10 @@ include('dbconn.php');
                                     <td><?php echo $row['pname'] ?></td>
                                     <td><?php echo $row['pcontact'] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default1_<?php echo $row['id']; ?>">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-default1_<?php echo $row['id']; ?>">
                                             Edit
                                         </button>
-                                        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id']; ?>&table=students" role="button">Delete</a>
+                                        <a class="btn btn-danger"  href="delete.php?id=<?php echo $row['id']; ?>&table=students" role="button">Delete</a>
                                     </td>
                                 </tr>
                                 <!-- Edit Modal -->

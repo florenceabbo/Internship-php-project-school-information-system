@@ -105,28 +105,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="login1.css">
     <!-- Custom styles -->
     <style>
-      body {
-    background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
-    background-image: url('image2.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        body {
+            background-image: url('mak.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0px;
+            height: 100vh;
+            display: flex;
+            /*justify-content: center;*/
+            align-items: center;
+        }
 
+        h4 {
+            font-size: 15px;
+            color: orange;
+        }
 
         .container {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a slight shadow effect */
-            
+            text-align: center;
+            background-color: rgb(0,0,0,0.4);
+            background-size: cover;
+            background-position: center;
+            width:100%;
+            height: 100%;
         }
-        .invalid-feedback{
-            color:red;
+
+        .invalid-feedback {
+            color: red;
         }
+
+        /* Center the image */
+        .osplogo {
+            width: 150px; /* Set the width of the image */
+            height: 150px;
+            margin-bottom: 20px; /* Add some space below the image */
+        }
+        form {
+    background-color: white; /* Set form background color to white */
+    padding: 25px 9px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 60px;
+   
+    
+}
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 150px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #200190; 
+    border-radius: 5px;
+}
+
+button{
+    padding: 10px;
+    background-color: orange;
+    width: calc(100% - 135px);
+    border-radius: 10px;
+    border: none;
+}
     </style>
 </head>
 
@@ -134,34 +173,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     <div class="container">
-           
         <div class="row justify-content-center">
             <div class="col-md-6 login-container">
+                
 
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                
+
                     <div class="form-group">
-                        <label for="email">Email address</label>
+                    <h4>OSP DIGITAL COLLEGE</h4>
+                    <img src="osplogo.png" alt="OSP Logo" class="osplogo">
                         <input type="email" class="form-control <?php echo (!empty($email_err)) ? 'is-invalid' : ''; ?>" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email" value="<?php echo $email; ?>">
                         <small id="emailHelp" class="form-text text-muted"></small>
                         <span class="invalid-feedback"><?php echo $email_err; ?></span>
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        
                         <input type="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" id="password" name="password" placeholder="Password">
                         <span class="invalid-feedback"><?php echo $password_err; ?></span>
                     </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="rememberMe">
-                        <label class="" for="rememberMe">Remember me</label>
-                    </div>
+                   
                     <button type="submit" class="button">Login</button>
                     <p class="mb-1">
-                         <a href="forgot.php">I forgot my password</a>
-                      </p>
-                      <p class="mb-0">
-                           <a href="register1.php" class="text-center">Don't have an account, Register</a>
-                        </p>
+                        <a href="forgot.php">I forgot my password</a>
+                    </p>
+                    <p class="mb-0">
+                        <a href="register1.php" class="text-center">Don't have an account, Register</a>
+                    </p>
                 </form>
             </div>
         </div>
